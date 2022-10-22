@@ -25,8 +25,6 @@ export default function Dashboard() {
   const [currency, setCurrency] = useState('USD');  
 
 
-  
-  // const [data, setData] = useState("")
   const [rate, setRate] = useState("");
   const [open, setOpen] = useState(true);
 
@@ -46,7 +44,6 @@ export default function Dashboard() {
     }
 
     const rateData = await response.json();
-    //console.log(data.hits);
     setRate(rateData)
   
 
@@ -68,7 +65,7 @@ export default function Dashboard() {
 
   useEffect(() => {
 
-    setCurrency(window.localStorage.getItem('base'));  
+    setCurrency(window.localStorage.getItem('base') ?? 'USD');  
     fetchData(window.localStorage.getItem('base'))
 
 
