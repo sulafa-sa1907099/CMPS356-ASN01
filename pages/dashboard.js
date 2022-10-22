@@ -59,7 +59,7 @@ export default function Dashboard() {
     console.log(currency)
 
     
-    fetchData(event.target.value ?? 'EUR')
+    fetchData(event.target.value ?? 'USD')
     console.log(rate.rates)
     window.localStorage.setItem('base', event.target.value);
 
@@ -134,7 +134,7 @@ export default function Dashboard() {
           <Grid sx={styling.container} container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {rate.rates && Object.entries(rate?.rates)?.map((r, i) => (
               <Grid item xs={2} key={i}>
-                <Pair base={currency} pair={r}>
+                <Pair base={currency ?? 'USD'} pair={r}>
                 </Pair>
               </Grid>
 
