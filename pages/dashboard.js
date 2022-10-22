@@ -33,7 +33,16 @@ export default function Dashboard() {
     fetcher, { suspense: true },
 
   );
+  
 
+  useEffect(() => {
+
+    setCurrency(window.localStorage.getItem('base') ?? 'USD');  
+    fetchData(window.localStorage.getItem('base'))
+
+
+
+  }, []);
 
 
   async function fetchData(currency) {
@@ -63,13 +72,6 @@ export default function Dashboard() {
   };
 
 
-  useEffect(() => {
-
-    setCurrency(window.localStorage.getItem('base') ?? 'USD');  
-    fetchData(window.localStorage.getItem('base'))
-
-
-  }, []);
 
 
 
@@ -115,7 +117,7 @@ export default function Dashboard() {
             <Select
               labelId="demo-simple-select-helper-label"
               id="demo-simple-select-helper"
-              value={currency?? 'USD'}
+              value={currency ?? 'USD'}
               label="Base Currency"
               onChange={handleChange}
             >
@@ -131,7 +133,7 @@ export default function Dashboard() {
           <Grid sx={styling.container} container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {rate.rates && Object.entries(rate?.rates)?.map((r, i) => (
               <Grid item xs={2} key={i}>
-                <Pair base={currency} pair={r}>
+                <Pair base={currency ?? 'USD'} pair={r}>
                 </Pair>
               </Grid>
 
