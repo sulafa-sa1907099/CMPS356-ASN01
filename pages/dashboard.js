@@ -123,7 +123,7 @@ export default function Dashboard() {
               onChange={handleChange}
             >
               {Object.values(data?.symbols).map((symbol) => (
-                <MenuItem value={symbol.code}>
+                <MenuItem value={symbol.code} key={symbol.code}>
                   {symbol.code}
                 </MenuItem>
               ))}
@@ -132,8 +132,8 @@ export default function Dashboard() {
 
           </FormControl>
           <Grid sx={styling.container} container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            {rate.rates && Object.entries(rate?.rates)?.map((r) => (
-              <Grid item xs={2}>
+            {rate.rates && Object.entries(rate?.rates)?.map((r, i) => (
+              <Grid item xs={2} key={i}>
                 <Pair base={currency} pair={r}>
                 </Pair>
               </Grid>
