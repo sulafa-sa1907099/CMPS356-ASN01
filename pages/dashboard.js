@@ -46,7 +46,7 @@ export default function Dashboard() {
 
   }, []);
 
-
+//FETCH
   async function fetchData(currency) {
     const url = `https://api.exchangerate.host/latest?base=${currency}`;
     const response = await fetch(url);
