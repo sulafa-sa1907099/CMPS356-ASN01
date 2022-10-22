@@ -13,7 +13,7 @@ const Pair = ({base, pair}) => {
                   color="text.secondary"
                   gutterBottom
                 >
-                  {base ?? 'USD'}/{pair["0"]}
+                  {base}/{pair["0"]}
                 </Typography>
                 <Typography
                   sx={{ fontSize: 14 }}
