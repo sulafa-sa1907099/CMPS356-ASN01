@@ -39,7 +39,7 @@ export default function Dashboard() {
 
     setCurrency(window.localStorage.getItem('base') ?? 'USD');  
     fetchData(window.localStorage.getItem('base'))
-    if (window.localStorage.getItem('base') == null)
+    if (typeof window == 'undefined')
     window.localStorage.setItem('base','USD');
 
 
