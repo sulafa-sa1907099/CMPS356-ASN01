@@ -39,6 +39,8 @@ export default function Dashboard() {
 
     setCurrency(window.localStorage.getItem('base') ?? 'USD');  
     fetchData(window.localStorage.getItem('base'))
+    if (window.localStorage.getItem('base') == null)
+    window.localStorage.setItem('base','USD');
 
 
 
@@ -67,7 +69,7 @@ export default function Dashboard() {
     
     fetchData(event.target.value ?? 'USD')
     console.log(rate.rates)
-    window.localStorage.setItem('base', event.target.value ?? 'USD');
+    window.localStorage.setItem('base', event.target.value);
 
   };
 
